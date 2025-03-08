@@ -1,7 +1,7 @@
-package Numder6.geometry2d;
+package Numder6.exceptions;
 
-public interface Figure {
-    double area();
-    @Override
-    String toString();
+public class InvalidArgumentException extends Exception {
+    public InvalidArgumentException(String message) {
+        super(message);
+    }
 }

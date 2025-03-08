@@ -1,26 +1,25 @@
-package Number4;
-
-import java.util.ArrayList;
-import java.util.List;
+package Number5;
 
 public class Main {
     public static void main(String[] args) {
-        OddEvenSeparator separator = new OddEvenSeparator();
+        Table table = new Table(3, 3);
 
-        // Добавляем числа в разделитель
-        separator.addNumber(10); // Чётное
-        separator.addNumber(23); // Нечётное
-        separator.addNumber(44); // Чётное
-        separator.addNumber(57); // Нечётное
-        separator.addNumber(98); // Чётное
-        separator.addNumber(13); // Нечётное
+        table.setValue(0, 0, 10);
+        table.setValue(0, 1, 20);
+        table.setValue(0, 2, 30);
+        table.setValue(1, 0, 40);
+        table.setValue(1, 1, 50);
+        table.setValue(1, 2, 60);
+        table.setValue(2, 0, 70);
+        table.setValue(2, 1, 80);
+        table.setValue(2, 2, 90);
 
-        // Получаем списки чётных и нечётных чисел
-        List<Integer> evenNumbers = separator.getChet();
-        List<Integer> oddNumbers = separator.getNechet();
+        System.out.println("Table:");
+        System.out.println(table.toString());
+        System.out.println("Number of rows: " + table.rows());
+        System.out.println("Number of columns: " + table.cols());
+        System.out.println("value: " + table.average());
 
-        // Выводим результаты
-        System.out.println("Chet: " + evenNumbers);
-        System.out.println("Nechet: " + oddNumbers);
+        System.out.println("Value in cell (1,1): " + table.getValue(1, 1));
     }
 }

@@ -1,4 +1,7 @@
 package Numder6.geometry2d;
 
-public class Figure {
+public interface Figure {
+    double area();
+    @Override
+    String toString();
 }

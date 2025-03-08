@@ -1,24 +1,26 @@
 package Numder6.geometry2d;
+import Numder6.exceptions.InvalidArgumentException;
 
-import exceptions.InvalidArgumentException;
+public class Rectangle implements Figure {
+    private final double width;
+    private final double height;
 
-public class Circle implements Figure {
-    private final double radius;
-
-    public Circle(double radius) throws InvalidArgumentException {
-        if (radius <= 0) {
-            throw new InvalidArgumentException("Radius must be greater than 0");
+    public Rectangle(double width, double height) throws InvalidArgumentException {
+        if (width <= 0 || height <= 0) {
+            throw new InvalidArgumentException("Side must be greater than 0");
         }
-        this.radius = radius;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double area() {
-        return Math.PI * radius * radius;
+        return width * height;
     }
 
     @Override
     public String toString() {
-        return "Circle with radius = " + radius;
+        return "Rectangle with width = " + width + " and height = " + height;
     }
+
 }

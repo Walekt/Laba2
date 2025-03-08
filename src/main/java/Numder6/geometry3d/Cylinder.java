@@ -1,7 +1,28 @@
-package Numder6.geometry3d;
+package geometry3d;
 
-public interface Figure {
-    double area();
+import Numder6.exceptions.*;
+import Numder6.geometry2d.Figure;
+
+public class Cylinder {
+    private final double height;
+    private final Figure base;
+    public Cylinder(Figure base, double height) throws InvalidArgumentException {
+        if (height < 0) {
+            throw new InvalidArgumentException("Height must be greater than 0");
+        }
+
+        this.base = base;
+        this.height = height;
+    }
+    public double Volume() throws ZeroVolumeException {
+        double volume = base.area() * height;
+        if (volume == 0) {
+            throw new ZeroVolumeException("Volume must be greater then 0");
+        }
+        return volume;
+    }
     @Override
-    String toString();
+    public String toString() {
+        return "Cylinder with height = " + height + " and figure = " + base;
+    }
 }
